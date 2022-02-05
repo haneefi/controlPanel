@@ -32,6 +32,10 @@ class StoreUserRequest extends FormRequest
                 'required',
                 'array',
             ],
+            'profile_photo_path'    => [
+                'nullable',
+                'mimes:jpg,jpeg,png', 'max:1024'
+            ],
         ];
     }
 

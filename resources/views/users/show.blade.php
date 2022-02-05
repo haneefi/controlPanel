@@ -82,6 +82,15 @@
                                 @endforeach
                             </td>
                         </tr>
+                        <tr class="border-b">
+                            <th scope="col" class="">
+
+                                {{ __('Profile') }}
+                            </th>
+                            <td class="">
+                                <img src="{{ $user->profile_photo_url  }}" />
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>

@@ -15,7 +15,7 @@
 
                 </div>
                 <div class="card-body pt-0">
-                    <form method="post" action="{{ route('users.update', $user->id) }}">
+                    <form method="post" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('put')
 
@@ -68,7 +68,10 @@
                              <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-
+                        <div class="mb-3">
+                            <label class="form-label" for="photo">{{ __('Profile Picture') }}</label>
+                            <input class="form-control" id="photo" type="file" name="photo" />
+                        </div>
 
                         <div class="flex items-center ">
                             <x-jet-button>

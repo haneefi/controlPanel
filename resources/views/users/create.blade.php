@@ -16,7 +16,7 @@
 
                 </div>
                 <div class="card-body pt-0">
-                    <form method="post" action="{{ route('users.store') }}">
+                    <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-3">
@@ -24,7 +24,7 @@
                             <input type="text" name="name" id="name" class="form-control"
                                 value="{{ old('name', '') }}" />
                             @error('name')
-                             <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
@@ -32,7 +32,7 @@
                             <input type="email" name="email" id="email" class="form-control"
                                 value="{{ old('email', '') }}" />
                             @error('email')
-                             <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
@@ -41,7 +41,7 @@
                             <input type="text" name="username" id="username" class="form-control"
                                 value="{{ old('username', '') }}" />
                             @error('username')
-                             <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
@@ -49,7 +49,7 @@
                             <label for="password" class="form-label">{{ __('Password') }}</label>
                             <input type="password" name="password" id="password" class="form-control" />
                             @error('password')
-                             <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
@@ -63,7 +63,15 @@
                                 @endforeach
                             </select>
                             @error('roles')
-                             <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="photo">{{ __('Profile Picture') }}</label>
+                            <input class="form-control" id="photo" type="file" name="profile_photo_path" />
+                            @error('profile_photo_path')
+                                <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
